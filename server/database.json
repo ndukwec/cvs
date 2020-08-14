@@ -1,0 +1,34 @@
+{
+  "accounts": [{
+    "1": {
+      "accountName": "IRA - 5200",
+      "availableCash": 66607,
+      "change": "22470/55770"
+    },
+    "2": {
+      "accountName": "AAA - 1812",
+      "availableCash": 92936,
+      "change": "51026/7174"
+    },
+    "3": {
+      "accountName": "AAA - 3810",
+      "availableCash": 68856,
+      "change": "96109/61612"
+    },
+    "4": {
+      "accountName": "REG - 2019",
+      "availableCash": 91938,
+      "change": "13027/99085"
+    },
+    "5": {
+      "accountName": "REG - 2025",
+      "availableCash": 38736,
+      "change": "65677/28086"
+    },
+    "6": {
+      "accountName": "ACS - 25",
+      "availableCash": 36559,
+      "change": "65594/21294"
+    }
+  }]
+}
