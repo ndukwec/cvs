@@ -1,1 +1,13 @@
-<div></div>
+<div class="container">
+  <div class="row" *ngIf="accounts">
+    <h1>Accounts</h1>
+    <div *ngFor="let account of accounts">
+      <ul>
+        <li><strong>Account Name:</strong> {{account.accountName}}</li>
+        <li><strong>Available Cash:</strong> {{'$' + account.availableCash}}</li>
+        <li><strong>Change:</strong> {{account.change}}</li>
+      </ul>
+      <hr/>
+    </div>
+  </div>
+</div>

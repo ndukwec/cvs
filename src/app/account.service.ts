@@ -17,6 +17,7 @@ export class AccountService {
     return this.http.get<Accounts[]>(this.accountsEndpointUrl);
   }
 
+  // Use below if we have to create accounts via post but out of scope for this assignment
   createAccount(body: AccountRequest): Observable<Accounts> {
     const httpOptions = {
       headers: new HttpHeaders({
