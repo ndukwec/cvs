@@ -13,17 +13,17 @@ export class AccountService {
   private accountsEndpointUrl = this.baseUrlForAccountAPI + '/accounts';
 
 
-  getAccounts(): Observable<Account[]> {
-    return this.http.get<Account[]>(this.accountsEndpointUrl);
+  getAccounts(): Observable<Accounts[]> {
+    return this.http.get<Accounts[]>(this.accountsEndpointUrl);
   }
 
-  createAccount(body: AccountRequest): Observable<Account> {
+  createAccount(body: AccountRequest): Observable<Accounts> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<Account>(this.accountsEndpointUrl, body, httpOptions);
+    return this.http.post<Accounts>(this.accountsEndpointUrl, body, httpOptions);
   }
 
 }
@@ -42,7 +42,7 @@ export class AccountRequest {
   }
 }
 
-export interface Account {
+export interface Accounts {
   id: number;
   accountName: string;
   availableCash: string;
