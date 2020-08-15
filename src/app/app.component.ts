@@ -26,9 +26,27 @@ export class AppComponent implements OnInit {
     });
   }
 
-  sortByAsc() {
+  sortByNameAsc() {
+    return this.accounts.sort((accountA, accountB) => {
+      if (accountA.accountName > accountB.accountName){
+        return 1;
+      }
+      if (accountA.accountName < accountB.accountName) {
+        return -1;
+      }
+      return 0;
+    });
   }
 
-  sortByDesc() {
+  sortByNameDesc() {
+    return this.accounts.sort((accountA, accountB) => {
+      if (accountA.accountName < accountB.accountName){
+        return 1;
+      }
+      if (accountA.accountName > accountB.accountName) {
+        return -1;
+      }
+      return 0;
+    });
   }
 }
