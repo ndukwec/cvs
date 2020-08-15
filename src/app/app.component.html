@@ -2,7 +2,7 @@
   <div class="row" *ngIf="accounts">
     <h1>Accounts</h1>
     <div class="table-responsive">
-      <table class="table table-dark" id="accountsTable">
+      <table class="table" id="accountsTable">
         <tbody>
         <tr *ngFor="let account of accounts | slice: 0: (more ? undefined : 3)">
           <td>
