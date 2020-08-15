@@ -27,6 +27,10 @@ export class AppComponent implements OnInit {
   }
 
   sortByNameAsc() {
+    if (this.accounts.length === 0) {
+      console.log('The accounts array is empty :(');
+      return;
+    }
     return this.accounts.sort((accountA, accountB) => {
       if (accountA.accountName > accountB.accountName){
         return 1;
@@ -39,6 +43,10 @@ export class AppComponent implements OnInit {
   }
 
   sortByNameDesc() {
+    if (this.accounts.length === 0) {
+      console.log('The accounts array is empty :(');
+      return;
+    }
     return this.accounts.sort((accountA, accountB) => {
       if (accountA.accountName < accountB.accountName){
         return 1;
