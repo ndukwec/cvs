@@ -5,9 +5,13 @@
       <ul>
         <li><strong>Account Name:</strong> {{account.accountName}}</li>
         <li><strong>Available Cash:</strong> {{'$' + account.availableCash}}</li>
-        <li><strong>Change:</strong> {{account.change}}</li>
+        <li><strong>Change:</strong> {{'-' + account.change.split("/")[0] + '/$' +
+                                        account.change.split("/")[1]}}
+        </li>
       </ul>
       <hr/>
     </div>
   </div>
+  <button>&#9650;</button>
+  <button>&#9660;</button>
 </div>
