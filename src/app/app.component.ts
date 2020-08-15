@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   accounts: Accounts[];
+  more: boolean;
 
   ngOnInit(){
     this.getCurrentAccounts();
@@ -23,5 +24,11 @@ export class AppComponent implements OnInit {
       console.log(result);
       this.accounts = result;
     });
+  }
+
+  sortByAsc() {
+  }
+
+  sortByDesc() {
   }
 }

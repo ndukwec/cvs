@@ -1,17 +1,22 @@
 <div class="container">
   <div class="row" *ngIf="accounts">
     <h1>Accounts</h1>
-    <div *ngFor="let account of accounts">
-      <ul>
-        <li><strong>Account Name:</strong> {{account.accountName}}</li>
-        <li><strong>Available Cash:</strong> {{'$' + account.availableCash}}</li>
-        <li><strong>Change:</strong> {{'-' + account.change.split("/")[0] + '/$' +
-                                        account.change.split("/")[1]}}
-        </li>
-      </ul>
-      <hr/>
+    <div class="table-responsive">
+      <table class="table table-dark" id="accountsTable">
+        <tbody>
+        <tr *ngFor="let account of accounts | slice: 0: (more ? undefined : 3)">
+          <td>
+            <strong>Account Name: {{account.accountName}}</strong> <br/>
+            <strong>Available Cash: {{'$' + account.availableCash}}</strong> <br/>
+            <strong>Change: {{'-' + account.change.split("/")[0] + '/$' +
+                      account.change.split("/")[1]}}</strong>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <button>&#9650;</button>
-  <button>&#9660;</button>
+  <button (click)="more = !more">{{more ? 'Show less' : 'Show All'}}</button>
+  <button (click)="sortByAsc()">&#9650;</button>
+  <button (click)="sortByDesc()">&#9660;</button>
 </div>
