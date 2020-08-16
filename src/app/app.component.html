@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row" *ngIf="accounts">
     <div class="card">
-      <div class="card-body">
+      <div class="card-header">
         <h5 class="float-left text-muted">Accounts</h5>
         <div class="float-left" style="padding-left: 50px">
           <a class="btn" (click)="sortByAccountNumberAsc()">&#9650;</a>
@@ -12,21 +12,20 @@
           <a class="btn" (click)="sortByAvailableCashDesc()">&#8595;</a>
         </div>
       </div>
-    </div>
-    <div class="table-responsive">
-      <table class="table" id="accountsTable">
-        <tbody>
-        <tr *ngFor="let account of accounts | slice: 0: (more ? undefined : 3)">
-          <td>
+      <div class="card-body">
+        <ul class="list-group list-group-flush" *ngFor="let account of accounts | slice: 0: (more ? undefined : 3)">
+          <li class="list-group-item">
             <strong>Account Name: </strong><strong style="color: darkblue">{{account.accountName}}</strong> <br/>
             <strong>Available Cash: </strong><strong style="color: green">{{'$' + account.availableCash}}</strong> <br/>
             <strong>Today's Change: </strong><strong style="color: red">{{'-' + account.change.split("/")[0] + '/$' +
-                      account.change.split("/")[1]}}</strong>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+                                    account.change.split("/")[1]}}</strong>
+          </li>
+          <hr>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-block align-content-center" (click)="more = !more">{{more ? 'Load less' : 'Load more'}}</button>
+      </div>
     </div>
   </div>
-  <button (click)="more = !more">{{more ? 'Load less' : 'Load more'}}</button>
 </div>
