@@ -26,20 +26,20 @@ export class AppComponent implements OnInit {
     });
   }
 
-  sortByNameAsc() {
+  sortByAccountNumberAsc() {
     if (this.accounts.length === 0) {
       console.log('The accounts array is empty :(');
       return;
     }
-    return this.accountService.sort('sortByNameAsc', this.accounts);
+    return this.accountService.sort('sortByAccountNumberAsc', this.accounts);
   }
 
-  sortByNameDesc() {
+  sortByAccountNumberDesc() {
     if (this.accounts.length === 0) {
       console.log('The accounts array is empty :(');
       return;
     }
-    return this.accountService.sort('sortByNameDesc', this.accounts);
+    return this.accountService.sort('sortByAccountNumberDesc', this.accounts);
   }
 
   sortByAvailableCashDesc() {

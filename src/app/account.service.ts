@@ -33,23 +33,27 @@ export class AccountService {
       console.log('Sort method was called without a given criteria');
       return;
     }
-    if (criteria === 'sortByNameAsc'){
+    if (criteria === 'sortByAccountNumberAsc'){
       return accounts.sort((accountA, accountB) => {
-        if (accountA.accountName > accountB.accountName){
+        const accountNumberA = accountA.accountName.split('-')[1];
+        const accountNumberB = accountB.accountName.split('-')[1];
+        if (accountNumberA > accountNumberB){
           return 1;
         }
-        if (accountA.accountName < accountB.accountName) {
+        if (accountNumberA < accountNumberB) {
           return -1;
         }
         return 0;
       });
     }
-    if (criteria === 'sortByNameDesc'){
+    if (criteria === 'sortByAccountNumberDesc'){
       return accounts.sort((accountA, accountB) => {
-        if (accountA.accountName < accountB.accountName){
+        const accountNumberA = accountA.accountName.split('-')[1];
+        const accountNumberB = accountB.accountName.split('-')[1];
+        if (accountNumberA < accountNumberB){
           return 1;
         }
-        if (accountA.accountName > accountB.accountName) {
+        if (accountNumberA > accountNumberB) {
           return -1;
         }
         return 0;
