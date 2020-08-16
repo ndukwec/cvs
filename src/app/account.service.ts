@@ -27,6 +27,61 @@ export class AccountService {
     return this.http.post<Accounts>(this.accountsEndpointUrl, body, httpOptions);
   }
 
+  // Sort method below takes in a criteria/field to sort and an array of Accounts to sort
+  sort(criteria: string, accounts: Accounts[]): Accounts[] {
+    if (criteria === '' || criteria === undefined) {
+      console.log('Sort method was called without a given criteria');
+      return;
+    }
+    if (criteria === 'sortByNameAsc'){
+      return accounts.sort((accountA, accountB) => {
+        if (accountA.accountName > accountB.accountName){
+          return 1;
+        }
+        if (accountA.accountName < accountB.accountName) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    if (criteria === 'sortByNameDesc'){
+      return accounts.sort((accountA, accountB) => {
+        if (accountA.accountName < accountB.accountName){
+          return 1;
+        }
+        if (accountA.accountName > accountB.accountName) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    if (criteria === 'sortByAvailableCashDesc') {
+      return accounts.sort((accountA, accountB) => {
+        const availableCashForAccountA = accountA.availableCash;
+        const availableCashForAccountB = accountB.availableCash;
+        if (availableCashForAccountA < availableCashForAccountB){
+          return 1;
+        }
+        if (availableCashForAccountA > availableCashForAccountB) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    if (criteria === 'sortByAvailableCashAsc') {
+      return accounts.sort((accountA, accountB) => {
+        const availableCashForAccountA = accountA.availableCash;
+        const availableCashForAccountB = accountB.availableCash;
+        if (availableCashForAccountA > availableCashForAccountB){
+          return 1;
+        }
+        if (availableCashForAccountA < availableCashForAccountB) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+  }
 }
 
 export class AccountRequest {
