@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   more: boolean;
   ascendingAccountNumber: boolean;
   ascendingAvailableCash: boolean;
+  signBeforeChangeNegative = '-';    // Used in getSign() method below
+  signBeforeChangePositive = '+';    // Used in getSign() method below
 
   ngOnInit(){
     this.getCurrentAccounts();
@@ -44,5 +46,10 @@ export class AppComponent implements OnInit {
     }
     this.accountService.ascendingAvailableCash = this.ascendingAvailableCash;
     return this.accountService.sort('sortByAvailableCash', this.accounts);
+  }
+
+  // Checks if given value is less than 1.0 to decide if we'll append a - or + in front of the value
+  getSign(value) {
+    return value < 1.0 ? this.signBeforeChangeNegative : this.signBeforeChangePositive;
   }
 }

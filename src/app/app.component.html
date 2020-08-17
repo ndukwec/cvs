@@ -17,7 +17,9 @@
           <li class="list-group-item">
             <strong>Account Name: </strong><strong style="color: darkblue">{{account.accountName}}</strong> <br/>
             <strong>Available Cash: </strong><strong style="color: green">{{'$' + account.availableCash}}</strong> <br/>
-            <strong>Today's Change: </strong><strong style="color: red">{{'-' + account.change.split("/")[0] + '/$' +
+            <strong>Today's Change: </strong><strong style="color: red">{{
+                                getSign(account.change.split("/")[0]) +
+                                account.change.split("/")[0] + '%/$' +
                                     account.change.split("/")[1]}}</strong>
             <hr>
           </li>
