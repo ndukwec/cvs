@@ -4,37 +4,37 @@
       "id": 1,
       "accountName": "IRA - 5200",
       "availableCash": 66607,
-      "change": "22470/55770"
+      "change": "0.34/55770"
     },
     {
       "id": 2,
       "accountName": "AAA - 1812",
       "availableCash": 92936,
-      "change": "51026/7174"
+      "change": "0.2/7174"
     },
     {
       "id": 3,
       "accountName": "AAA - 3810",
       "availableCash": 68856,
-      "change": "96109/61612"
+      "change": "1.6/61612"
     },
     {
       "id": 4,
       "accountName": "REG - 2019",
       "availableCash": 91938,
-      "change": "13027/99085"
+      "change": "2.3/99085"
     },
     {
       "id": 5,
       "accountName": "REG - 2025",
       "availableCash": 38736,
-      "change": "65677/28086"
+      "change": "3.1/28086"
     },
     {
       "id": 885,
       "accountName": "BBA - 3500",
       "availableCash": 98432,
-      "change": "2245/556"
+      "change": "1.5/556"
     }
   ]
 }
