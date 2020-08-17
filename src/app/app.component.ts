@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
 
   accounts: Accounts[];
   more: boolean;
+  ascendingAccountNumber: boolean;
+  ascendingAvailableCash: boolean;
 
   ngOnInit(){
     this.getCurrentAccounts();
@@ -26,35 +28,21 @@ export class AppComponent implements OnInit {
     });
   }
 
-  sortByAccountNumberAsc() {
+  sortByAccountNumber() {
     if (this.accounts.length === 0) {
       console.log('The accounts array is empty :(');
       return;
     }
-    return this.accountService.sort('sortByAccountNumberAsc', this.accounts);
+    this.accountService.ascendingAccountNumber = this.ascendingAccountNumber;
+    return this.accountService.sort('sortByAccountNumber', this.accounts);
   }
 
-  sortByAccountNumberDesc() {
+  sortByAvailableCash() {
     if (this.accounts.length === 0) {
       console.log('The accounts array is empty :(');
       return;
     }
-    return this.accountService.sort('sortByAccountNumberDesc', this.accounts);
-  }
-
-  sortByAvailableCashDesc() {
-    if (this.accounts.length === 0) {
-      console.log('The accounts array is empty :(');
-      return;
-    }
-    return this.accountService.sort('sortByAvailableCashDesc', this.accounts);
-  }
-
-  sortByAvailableCashAsc() {
-    if (this.accounts.length === 0) {
-      console.log('The accounts array is empty :(');
-      return;
-    }
-    return this.accountService.sort('sortByAvailableCashAsc', this.accounts);
+    this.accountService.ascendingAvailableCash = this.ascendingAvailableCash;
+    return this.accountService.sort('sortByAvailableCash', this.accounts);
   }
 }

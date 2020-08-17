@@ -12,6 +12,9 @@ export class AccountService {
   private baseUrlForAccountAPI = 'http://localhost:3000';
   private accountsEndpointUrl = this.baseUrlForAccountAPI + '/accounts';
 
+  public ascendingAccountNumber: boolean;
+  public ascendingAvailableCash: boolean;
+
 
   getAccounts(): Observable<Accounts[]> {
     return this.http.get<Accounts[]>(this.accountsEndpointUrl);
@@ -33,54 +36,46 @@ export class AccountService {
       console.log('Sort method was called without a given criteria');
       return;
     }
-    if (criteria === 'sortByAccountNumberAsc'){
+    if (criteria === 'sortByAccountNumber'){
       return accounts.sort((accountA, accountB) => {
         const accountNumberA = accountA.accountName.split('-')[1];
         const accountNumberB = accountB.accountName.split('-')[1];
-        if (accountNumberA > accountNumberB){
-          return 1;
-        }
-        if (accountNumberA < accountNumberB) {
-          return -1;
-        }
-        return 0;
-      });
-    }
-    if (criteria === 'sortByAccountNumberDesc'){
-      return accounts.sort((accountA, accountB) => {
-        const accountNumberA = accountA.accountName.split('-')[1];
-        const accountNumberB = accountB.accountName.split('-')[1];
-        if (accountNumberA < accountNumberB){
-          return 1;
-        }
-        if (accountNumberA > accountNumberB) {
-          return -1;
+        if (this.ascendingAccountNumber) {
+          if (accountNumberA > accountNumberB){
+            return 1;
+          }
+          if (accountNumberA < accountNumberB) {
+            return -1;
+          }
+        } else {
+          if (accountNumberA < accountNumberB){
+            return 1;
+          }
+          if (accountNumberA > accountNumberB) {
+            return -1;
+          }
         }
         return 0;
       });
     }
-    if (criteria === 'sortByAvailableCashDesc') {
+    if (criteria === 'sortByAvailableCash') {
       return accounts.sort((accountA, accountB) => {
         const availableCashForAccountA = accountA.availableCash;
         const availableCashForAccountB = accountB.availableCash;
-        if (availableCashForAccountA < availableCashForAccountB){
-          return 1;
-        }
-        if (availableCashForAccountA > availableCashForAccountB) {
-          return -1;
-        }
-        return 0;
-      });
-    }
-    if (criteria === 'sortByAvailableCashAsc') {
-      return accounts.sort((accountA, accountB) => {
-        const availableCashForAccountA = accountA.availableCash;
-        const availableCashForAccountB = accountB.availableCash;
-        if (availableCashForAccountA > availableCashForAccountB){
-          return 1;
-        }
-        if (availableCashForAccountA < availableCashForAccountB) {
-          return -1;
+        if (this.ascendingAvailableCash){
+          if (availableCashForAccountA < availableCashForAccountB){
+            return 1;
+          }
+          if (availableCashForAccountA > availableCashForAccountB) {
+            return -1;
+          }
+        } else {
+          if (availableCashForAccountA > availableCashForAccountB){
+            return 1;
+          }
+          if (availableCashForAccountA < availableCashForAccountB) {
+            return -1;
+          }
         }
         return 0;
       });

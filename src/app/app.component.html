@@ -2,14 +2,14 @@
   <div class="row" *ngIf="accounts">
     <div class="card">
       <div class="card-header">
-        <h5 class="float-left text-muted">Accounts</h5>
-        <div class="float-left" style="padding-left: 50px">
-          <a class="btn" (click)="sortByAccountNumberAsc()">&#9650;</a>
-          <a class="btn" (click)="sortByAccountNumberDesc()">&#9660;</a>
-        </div>
+        <a class="btn float-left text-muted"
+           (click)="ascendingAccountNumber=!ascendingAccountNumber; this.sortByAccountNumber()" style="padding-right: 50px">
+          Accounts
+        </a>
         <div class="float-right" style="padding-left: 25px">
-          <a class="btn" (click)="sortByAvailableCashAsc()">&#8593;</a>
-          <a class="btn" (click)="sortByAvailableCashDesc()">&#8595;</a>
+          <a class="btn" (click)="ascendingAvailableCash=!ascendingAvailableCash; sortByAvailableCash()">
+            {{ascendingAvailableCash? '^': 'v'}}
+          </a>
         </div>
       </div>
       <div class="card-body">
