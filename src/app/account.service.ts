@@ -97,6 +97,20 @@ export class AccountRequest {
   }
 }
 
+export class Accounts {
+  id: number;
+  accountName: string;
+  availableCash: string;
+  change: string;
+
+  constructor(id: number, accountName: string, availableCash: string, change: string) {
+    this.id = id;
+    this.accountName = accountName;
+    this.availableCash = availableCash;
+    this.change = change;
+  }
+}
+
 export interface Accounts {
   id: number;
   accountName: string;
