@@ -6,7 +6,7 @@
            (click)="ascendingAccountNumber=!ascendingAccountNumber; this.sortByAccountNumber()" style="padding-right: 50px">
           {{ascendingAccountNumber ? 'Accounts ^' : 'Accounts V'}}
         </a>
-        <div class="float-right" style="padding-left: 25px">
+        <div class="float-right" style="padding-left: 25px; border-left: thick solid white; height: auto">
           <a class="btn" (click)="ascendingAvailableCash=!ascendingAvailableCash; sortByAvailableCash()">
             {{ascendingAvailableCash? '^': 'v'}}
             Available Cash <br/>
@@ -18,11 +18,10 @@
         <ul class="list-group list-group-flush" *ngFor="let account of accounts | slice: 0: (more ? undefined : 3)">
           <li class="list-group-item">
             <strong style="color: darkblue; float: left; padding-right: 50px">{{account.accountName}}</strong>
-            <strong style="color: green; float: right">{{'$' + account.availableCash}}</strong> <br/>
-            <strong style="color: red; float: right">{{
-                                getSign(account.change.split("/")[0]) +
-                                account.change.split("/")[0] + '%/$' +
-                                    account.change.split("/")[1]}}</strong><br/>
+            <strong style="color: black; float: right">{{'$' + account.availableCash}}</strong> <br/>
+            <strong style="color: grey; float: right"
+                    [ngStyle]="account.change.split('/')[0] < 1.0 ? {'color':'red'} : {'color':'green'}">
+              {{ getSign(account.change.split('/')[0]) + account.change.split('/')[0] + '%/$' + account.change.split('/')[1]}}</strong><br/>
             <hr>
           </li>
         </ul>
