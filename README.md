@@ -1,7 +1,7 @@
 # CVS Accounts Display App
 To run this application do the following: 
 
-`cd into the directory
+`cd into the directory, run npm install
 `
 
 `open two terminal windows:
