@@ -4,7 +4,7 @@
       <div class="card-header">
         <a class="btn float-left text-muted"
            (click)="ascendingAccountNumber=!ascendingAccountNumber; this.sortByAccountNumber()" style="padding-right: 50px">
-          Accounts
+          {{ascendingAccountNumber ? 'Accounts ^' : 'Accounts V'}}
         </a>
         <div class="float-right" style="padding-left: 25px">
           <a class="btn" (click)="ascendingAvailableCash=!ascendingAvailableCash; sortByAvailableCash()">
