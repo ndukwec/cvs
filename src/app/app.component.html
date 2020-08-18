@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" style="padding-top: 50px; padding-bottom: 50px">
   <div class="row" *ngIf="accounts">
     <div class="card">
       <div class="card-header">
         <a class="btn float-left text-muted"
            (click)="ascendingAccountNumber=!ascendingAccountNumber; this.sortByAccountNumber()" style="padding-right: 50px">
-          {{ascendingAccountNumber ? 'Accounts ^' : 'Accounts V'}}
+          Accounts <span style="font-size: smaller">{{ascendingAccountNumber ? ' ^' : ' V'}}</span>
         </a>
         <div class="float-right" style="padding-left: 25px; border-left: thick solid white; height: auto">
           <a class="btn text-muted" (click)="ascendingAvailableCash=!ascendingAvailableCash; sortByAvailableCash()">
