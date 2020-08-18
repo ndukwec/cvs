@@ -9,24 +9,26 @@
         <div class="float-right" style="padding-left: 25px">
           <a class="btn" (click)="ascendingAvailableCash=!ascendingAvailableCash; sortByAvailableCash()">
             {{ascendingAvailableCash? '^': 'v'}}
+            Available Cash <br/>
+            Today's Change
           </a>
         </div>
       </div>
       <div class="card-body">
         <ul class="list-group list-group-flush" *ngFor="let account of accounts | slice: 0: (more ? undefined : 3)">
           <li class="list-group-item">
-            <strong>Account Name: </strong><strong style="color: darkblue">{{account.accountName}}</strong> <br/>
-            <strong>Available Cash: </strong><strong style="color: green">{{'$' + account.availableCash}}</strong> <br/>
-            <strong>Today's Change: </strong><strong style="color: red">{{
+            <strong style="color: darkblue; float: left; padding-right: 50px">{{account.accountName}}</strong>
+            <strong style="color: green; float: right">{{'$' + account.availableCash}}</strong> <br/>
+            <strong style="color: red; float: right">{{
                                 getSign(account.change.split("/")[0]) +
                                 account.change.split("/")[0] + '%/$' +
-                                    account.change.split("/")[1]}}</strong>
+                                    account.change.split("/")[1]}}</strong><br/>
             <hr>
           </li>
         </ul>
       </div>
       <div class="card-footer">
-        <button class="btn btn-block align-content-center" (click)="more = !more">{{more ? 'Load less' : 'Load more'}}</button>
+        <button style="color: darkblue" class="btn btn-block align-content-center" (click)="more = !more">{{more ? 'Load less' : 'Load more'}}</button>
       </div>
     </div>
   </div>
