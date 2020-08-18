@@ -4,11 +4,11 @@
       <div class="card-header">
         <a class="btn float-left text-muted"
            (click)="ascendingAccountNumber=!ascendingAccountNumber; this.sortByAccountNumber()" style="padding-right: 50px">
-          Accounts <span style="font-size: smaller">{{ascendingAccountNumber ? ' ^' : ' V'}}</span>
+          Accounts <span style="font-size: smaller; color: dodgerblue">{{ascendingAccountNumber ? ' ^' : ' V'}}</span>
         </a>
         <div class="float-right" style="padding-left: 25px; border-left: thick solid white; height: auto">
           <a class="btn text-muted" (click)="ascendingAvailableCash=!ascendingAvailableCash; sortByAvailableCash()">
-            {{ascendingAvailableCash? '^': 'v'}}
+            <span style="color: dodgerblue">{{ascendingAvailableCash? '^': 'v'}}</span>
             Available Cash <br/>
             <span style="font-size: smaller">Today's Change</span>
           </a>

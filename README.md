@@ -4,14 +4,16 @@ To run this application do the following:
 `cd into the directory
 `
 
-`open two terminal windows
+`open two terminal windows:
 `
 
-`first run: npm run server
+`first run: npm run server in the first window
 `
 
-`then run: ng serve
+`then run: ng serve in the second window
 `
 
 go to http://localhost:4200/
 
+Inside the server directory is our `database.json` file which
+has the data we'd like to come from the server.
